@@ -4,7 +4,7 @@ function App() {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
-    fetch("https://fastapi-test-backend.onrender.com/api/test")
+    fetch("https://rendertest-y3pp.onrender.com")
       .then(res => res.json())
       .then(data => setMessage(data.message))
       .catch(() => setMessage("Backend connection failed"));
