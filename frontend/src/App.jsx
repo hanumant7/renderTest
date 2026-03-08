@@ -4,16 +4,18 @@ function App() {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/test")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch(() => setMessage("Error connecting to backend"));
+    fetch("https://fastapi-test-backend.onrender.com/api/test")
+      .then(res => res.json())
+      .then(data => setMessage(data.message))
+      .catch(() => setMessage("Backend connection failed"));
   }, []);
 
   return (
-    <div style={{textAlign:"center", marginTop:"50px"}}>
-      <h1>React + FastAPI Hosting Test</h1>
-      <p>{message}</p>
+    <div style={{display:"grid",placeItems:"center",minHeight:"100vh"}}>
+      <div style={{textAlign:"center"}}>
+        <h1>React + FastAPI Render Test</h1>
+        <h2>{message}</h2>
+      </div>
     </div>
   );
 }
